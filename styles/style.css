@@ -1,7 +1,6 @@
 .main-container {
   box-sizing: border-box;
   margin: auto 5rem;
-  /* width: 80vw; */
   padding: 0;
   flex-direction: column;
   display: flex;
@@ -14,9 +13,6 @@
 .logo {
   width: 150px;
   cursor: pointer;
-  /* height: inherit; */
-  /* background-size: cover;
-  background-image: url("/DESIGN/LOGO/LOGO.png"); */
 }
 html {
   margin: 0;
