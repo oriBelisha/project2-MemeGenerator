@@ -115,7 +115,6 @@ function onUploadPhoto(ev, el) {
     const reader = new FileReader();
     reader.onload = function (ev) {
       const imageUrl = ev.target.result;
-      debugger;
       addImg(imageUrl);
       setGallery(true);
 
