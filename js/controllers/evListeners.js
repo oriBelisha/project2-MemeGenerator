@@ -47,7 +47,6 @@ function resizeCanvas() {
     gWindowSize.height = window.innerHeight;
     renderMeme(true, true);
   }
-  // gCanvas.height = elContainer.offsetHeight;
 }
 function fixMenu() {
   let elmenu = document.querySelector(".header-nav");
