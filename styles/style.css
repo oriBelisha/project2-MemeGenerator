@@ -1,0 +1,122 @@
+.main-container {
+  box-sizing: border-box;
+  margin: auto 5rem;
+  /* width: 80vw; */
+  padding: 0;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header a:hover {
+  color: orange;
+}
+.logo {
+  width: 150px;
+  cursor: pointer;
+  /* height: inherit; */
+  /* background-size: cover;
+  background-image: url("/DESIGN/LOGO/LOGO.png"); */
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+.save {
+  font-size: 1.5rem;
+  width: 100px !important;
+  z-index: 1;
+  border: 1px solid black !important;
+}
+.hide {
+  visibility: hidden !important;
+  display: none !important;
+}
+.stickers-container {
+  width: 100%;
+  height: 50px;
+  /* background-color: brown; */
+  border: 0.0000000001rem solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.stickers-box {
+  display: flex;
+  flex-direction: row;
+}
+.stickers-container > * {
+  color: red;
+  font-size: 25px;
+}
+.save:hover,
+.sticker:hover,
+.arrow:hover {
+  background-color: lightgray;
+}
+
+.meme-generator input,
+select {
+  height: 50px;
+}
+body {
+  background-color: floralwhite;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header-nav a:hover {
+  cursor: pointer;
+}
+.header {
+  border-bottom: 1px black solid;
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* align-items: center; */
+  width: 90%;
+  margin: 1rem 0 1rem 0;
+  /* height: 10%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-nav {
+  /* margin-inline-end: 1rem; */
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.grid-item {
+  /* justify-self: center;
+  align-self: center; */
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+/* .hide {
+  visibility: hidden;
+} */
+.display-none {
+  display: none;
+}
+img {
+  /* align-self: center;
+  justify-self: center; */
+  height: inherit;
+  width: inherit;
+}
+
+.grid {
+  display: grid;
+}
+.flex {
+  display: flex;
+}
+.flexible {
+  width: fit-content !important;
+}
+
+#add-photo {
+  display: none;
+}

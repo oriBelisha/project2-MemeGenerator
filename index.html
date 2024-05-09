@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/meme-maker.css" />
+    <title>memeGenerator</title>
+  </head>
+  <body onload="init()">
+    <div class="main-container">
+      <div class="header">
+        <div onclick="renderGallery()" class="logo">
+          <img src="/DESIGN/LOGO/LOGO.png" alt="" />
+        </div>
+        <div
+          onclick="onToggleMenu()"
+          style="background-image: url(DESIGN/ICONS/Hamburger_icon.svg.png)"
+          class="burger-menu btn"
+        ></div>
+        <div class="header-nav">
+          <!-- <div style="display: flex"> -->
+          <!-- </div> -->
+          <div class="trans-btns">
+            <a value="en" onclick="onSetLang(this)">EN</a>
+            <a value="he" onclick="onSetLang(this)">HE</a>
+          </div>
+          <a data-trans="gallery-tab" onclick="renderGallery()">Gallery</a>
+          <a data-trans="memes-tab" onclick="renderSavedMemes()">Memes</a>
+          <a data-trans="about-tab" onclick="toggleModal()">About</a>
+
+          <a class="x" onclick="onToggleMenu()">x</a>
+        </div>
+      </div>
+      <div class="hide" data-id="179">xxxxxx</div>
+      <form class="search-container">
+        <a
+          data-trans="flexible-btn"
+          class="btn flexible"
+          onclick="onImgSelect()"
+          >Random</a
+        >
+        <input
+          list="keywords"
+          onkeyup="onFilterGallery(this)"
+          placeholder="search"
+          type="text"
+          data-trans="search-input"
+          name="search-bar"
+          id="search-bar"
+        />
+        <datalist id="keywords" class="search-select">
+          <option value="funny">funny</option>
+          <option value="angry">angry</option>
+          <option value="baby">baby</option>
+          <option value="politician">politician</option>
+          <option value="love">love</option>
+          <option value="cute">cute</option>
+          <option value="sleep">sleep</option>
+          <option value="victory">victory</option>
+        </datalist>
+
+        <a
+          onclick="onFilterGallery()"
+          class="btn search-btn"
+          style="background-image: url(DESIGN/ICONS/search-icon.png)"
+        ></a>
+      </form>
+      <section class="meme-generator">
+        <div class="canvas-container">
+          <canvas class="canvas"></canvas>
+        </div>
+        <div class="control-box">
+          <input
+            data-trans="meme-text-input"
+            class="meme-text"
+            placeholder="text-here"
+            onchange="onChangeText(this)"
+            type="text"
+          />
+          <button
+            onclick="onAddTextLine()"
+            style="background-image: url(/DESIGN/ICONS/add.png)"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <button
+            onclick="onDeleteTextLine()"
+            style="background-image: url(/DESIGN/ICONS/trash.png)"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <label
+            for="color-select1"
+            style="
+              background-image: url(/DESIGN/ICONS/paint-board-and-brush.png);
+            "
+            class="meme-btn btn"
+            width="100"
+            height="100"
+            ><</label
+          >
+          <button
+            onclick="onTextAlign(this)"
+            value="left"
+            style="background-image: url(/DESIGN/ICONS/align-to-left.png)"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <button
+            onclick="onTextAlign(this)"
+            value="center"
+            style="
+              background-image: url(/DESIGN/ICONS/center-text-alignment.png);
+            "
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <button
+            onclick="onTextAlign(this)"
+            value="right"
+            style="background-image: url(/DESIGN/ICONS/align-to-right.png)"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <button
+            style="
+              background-image: url(/DESIGN/ICONS/decrease\ font\ -\ icon.png);
+            "
+            onclick="onSetFontSize(this)"
+            value="decrease"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <button
+            style="
+              background-image: url(/DESIGN/ICONS/increase\ font\ -\ icon.png);
+            "
+            onclick="onSetFontSize(this)"
+            value="increase"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <!-- stroke btn -->
+          <!-- <button
+            onclick="onStroke()"
+            style="background-image: url(/DESIGN/ICONS/text\ stroke.png)"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button> -->
+          <button
+            style="
+              background-image: url(/DESIGN/ICONS/up-and-down-opposite-double-arrows-side-by-side.png);
+            "
+            onclick="onSwitchLine()"
+            class="meme-btn"
+            width="100"
+            height="100"
+          ></button>
+          <div class="stickers-container">
+            <div onclick="setPrevPage()" class="arrow">←</div>
+            <div class="stickers-box"></div>
+            <div onclick="setNextPage()" class="arrow">→</div>
+          </div>
+
+          <select onchange="getFont(true)" name="font-select" id="font-select">
+            <option value="impact">impact</option>
+            <option value="serif">serif</option>
+          </select>
+          <a
+            download="my-meme.jpeg"
+            href="#"
+            onclick="onSaveMeme(this)"
+            class="save btn"
+            data-trans="save-btn"
+          >
+            save
+          </a>
+        </div>
+        <input
+          oninput="onColorChange(this)"
+          value="#ffffff"
+          style="visibility: hidden"
+          type="color"
+          name="color-select1"
+          id="color-select1"
+        />
+      </section>
+
+      <section class="gallery-container"></section>
+      <div class="about-modal hide">
+        <a onclick="toggleModal()">x</a>
+        Hi i'm Ori Belisha an israeli jewish 19 yo fullstack developmer,
+        bodybuilder, life enthusiast and a future millionaire :)
+      </div>
+      <label
+        for="add-photo"
+        style="background-image: url(DESIGN/ICONS/upload2.png)"
+        class="add-photo btn"
+      ></label>
+      <input
+        onchange="onUploadPhoto(event,this)"
+        type="file"
+        id="add-photo"
+        hidden
+      />
+    </div>
+    <script src="js/services/storageService.js"></script>
+    <script src="js/services/memeService.js"></script>
+    <script src="js/services/i18n-service.js"></script>
+    <script src="js/controllers/evListeners.js"></script>
+    <script src="js/controllers/memeController.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
